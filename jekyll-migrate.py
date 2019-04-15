@@ -3,7 +3,9 @@ from functools import reduce
 import re
 frontMatter = "--- ---"
 localDir = input('Enter exact path: ')
-directory = "C:\\Users\\lucar\\Downloads\\"+ localDir +"\\"
+basePath = "C:\\Users\\lucar\\Desktop\\"
+directory = basePath + localDir +"\\"
+layout = input('Enter page layout: ')
 
 
 def create_md_from_dir(rootdir):
@@ -19,7 +21,7 @@ def create_md_from_dir(rootdir):
         for name in files:
             i = 0
             i += 1
-            fileContent = "---"+ "\n"+ "title: " + name[:-4] + "\n" + "image: " + name + "\n"  + "brand: " + str(folders[1]) + "\n" + "layout: vestito" +"\n" +"---"
+            fileContent = "---"+ "\n"+ "title: " + name[:-4] + "\n" + "image: " + name + "\n"  + "brand: " + str(folders[1]) + "\n" + "layout: " + layout +"\n" +"---"
             cleanName = name.replace(" ", "")
             cleanName = cleanName[:-4]
             fileName = ".\\output\\" + localDir +  "\\" + cleanName + ".md"
